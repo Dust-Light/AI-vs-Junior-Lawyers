@@ -1,110 +1,110 @@
 const quizQuestions = [
     {
-        question: "AI相比初级律师的优势是什么？",
+        question: "What advantage does AI have over junior lawyers?",
         options: [
-            "AI不需要喝咖啡",
-            "AI总是知道法律",
-            "AI可以更快地审阅文件",
-            "选项A和C都对"
+            "AI never needs coffee",
+            "AI always knows the law",
+            "AI can review documents faster",
+            "Both A and C"
         ],
         correctAnswer: 3,
         timeLimit: 30
     },
     {
-        question: "为什么初级律师在客户会议中比AI表现更好？",
+        question: "Why are junior lawyers better at client meetings than AI?",
         options: [
-            "他们具有同理心和人性化理解",
-            "他们可以进行情感化论证",
-            "AI不擅长闲聊",
-            "以上都是"
+            "They have empathy and human understanding",
+            "They can argue emotionally",
+            "AI struggles with small talk",
+            "All of the above"
         ],
         correctAnswer: 3,
         timeLimit: 30
     },
     {
-        question: "在哪项任务中AI最有可能超越初级律师？",
+        question: "Which task is AI most likely to outperform a junior lawyer at?",
         options: [
-            "记忆判例法",
-            "建立客户关系",
-            "在法庭上辩论",
-            "撰写创造性法律论据"
+            "Memorizing case law",
+            "Building client relationships",
+            "Arguing in court",
+            "Writing creative legal arguments"
         ],
         correctAnswer: 0,
         timeLimit: 30
     },
     {
-        question: "初级律师可能会用到而AI永远不会用的借口是？",
+        question: "Which excuse might a junior lawyer use that AI never would?",
         options: [
-            "打印机卡纸了",
-            "我需要更多咖啡",
-            "周一第一件事就做",
-            "以上都是"
+            "The printer jammed",
+            "I need more coffee",
+            "I'll do it first thing Monday",
+            "All of the above"
         ],
         correctAnswer: 3,
         timeLimit: 30
     },
     {
-        question: "连续工作72小时后，AI最可能说什么？",
+        question: "What might an AI say after working for 72 hours straight?",
         options: [
-            "我能休息一下吗？",
-            "我需要重启",
-            "错误：过度工作",
-            "什么都不说—继续工作"
+            "Can I take a break?",
+            "I need a reboot",
+            "Error: Overworked",
+            "Nothing—it just keeps working"
         ],
         correctAnswer: 3,
         timeLimit: 30
     },
     {
-        question: "初级律师比AI更容易听到的话是？",
+        question: "Which phrases are junior lawyers more likely to hear than AI?",
         options: [
-            "这很好，但需要调整",
-            "努力不错，明天重做",
-            "你在进步，继续加油",
-            "以上都是"
+            "This is good, but let's tweak it",
+            "Nice effort, but redo this by tomorrow",
+            "You're learning—keep at it",
+            "All of the above"
         ],
         correctAnswer: 3,
         timeLimit: 30
     },
     {
-        question: "AI在法律工作中的一个关键挑战是什么？",
+        question: "What's a key challenge for AI in legal work?",
         options: [
-            "理解客户邮件中的讽刺意味",
-            "快速审查10,000份合同",
-            "预测案件结果",
-            "格式化发票"
+            "Understanding sarcasm in client emails",
+            "Reviewing 10,000 contracts quickly",
+            "Predicting case outcomes",
+            "Formatting invoices"
         ],
         correctAnswer: 0,
         timeLimit: 30
     },
     {
-        question: "AI能完全取代初级律师吗？",
+        question: "Can AI completely replace junior lawyers?",
         options: [
-            "能",
-            "不能",
-            "部分能",
-            "取决于具体情况"
+            "Yes",
+            "No",
+            "Partially",
+            "It depends"
         ],
         correctAnswer: 1,
         timeLimit: 30
     },
     {
-        question: "哪项任务目前更适合AI而不是初级律师？",
+        question: "Which task is AI currently better suited for than a junior lawyer?",
         options: [
-            "审查数千份发票寻找错误",
-            "给客户写真诚的道歉信",
-            "处理法庭异议",
-            "说服高级合伙人接受想法"
+            "Reviewing thousands of invoices for errors",
+            "Writing heartfelt apology letters to clients",
+            "Handling courtroom objections",
+            "Convincing senior partners of an idea"
         ],
         correctAnswer: 0,
         timeLimit: 30
     },
     {
-        question: "为什么初级律师会羡慕AI？",
+        question: "Why might a junior lawyer envy AI?",
         options: [
-            "AI不用在办公室加班",
-            "AI不用担心打字错误",
-            "AI不用讨好高级合伙人",
-            "以上都是"
+            "AI never works late nights at the office",
+            "AI doesn't have to worry about typos",
+            "AI doesn't need to impress senior partners",
+            "All of the above"
         ],
         correctAnswer: 3,
         timeLimit: 30

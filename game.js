@@ -8,7 +8,7 @@ class QuizGame {
         this.timer = null;
         this.timeLeft = 0;
         
-        // DOM元素
+        // DOM elements
         this.questionElement = document.getElementById('question');
         this.optionsContainer = document.getElementById('options');
         this.timerElement = document.getElementById('timer');
@@ -31,10 +31,10 @@ class QuizGame {
         const question = this.questions[this.currentQuestionIndex];
         this.questionElement.textContent = `${this.currentQuestionIndex + 1}. ${question.question}`;
         
-        // 清空选项容器
+        // Clear options container
         this.optionsContainer.innerHTML = '';
         
-        // 创建选项按钮
+        // Create option buttons
         question.options.forEach((option, index) => {
             const button = document.createElement('button');
             button.textContent = option;
@@ -43,7 +43,7 @@ class QuizGame {
             this.optionsContainer.appendChild(button);
         });
 
-        // 设置计时器
+        // Set timer
         this.timeLeft = question.timeLimit;
         this.startTimer();
     }
@@ -62,7 +62,7 @@ class QuizGame {
     }
 
     updateTimerDisplay() {
-        this.timerElement.textContent = `剩余时间: ${this.timeLeft}秒`;
+        this.timerElement.textContent = `Time Left: ${this.timeLeft}s`;
     }
 
     checkAnswer(selectedIndex) {
@@ -70,12 +70,12 @@ class QuizGame {
         const currentQuestion = this.questions[this.currentQuestionIndex];
         const buttons = this.optionsContainer.getElementsByClassName('option-button');
         
-        // 禁用所有按钮
+        // Disable all buttons
         Array.from(buttons).forEach(button => {
             button.disabled = true;
         });
 
-        // 显示正确和错误答案
+        // Show correct and incorrect answers
         buttons[currentQuestion.correctAnswer].classList.add('correct');
         if (selectedIndex !== currentQuestion.correctAnswer) {
             buttons[selectedIndex].classList.add('incorrect');
@@ -99,7 +99,7 @@ class QuizGame {
             button.disabled = true;
         });
         
-        // 显示正确答案
+        // Show correct answer
         const currentQuestion = this.questions[this.currentQuestionIndex];
         buttons[currentQuestion.correctAnswer].classList.add('correct');
         
@@ -110,22 +110,22 @@ class QuizGame {
     }
 
     updateScore() {
-        this.scoreElement.textContent = `得分: ${this.score}`;
+        this.scoreElement.textContent = `Score: ${this.score}`;
     }
 
     endGame() {
         const container = document.getElementById('game-container');
         container.innerHTML = `
             <div class="game-over">
-                <h2>游戏结束！</h2>
-                <p>最终得分: ${this.score}</p>
-                <button class="restart-button" onclick="location.reload()">重新开始</button>
+                <h2>Game Over!</h2>
+                <p>Final Score: ${this.score}</p>
+                <button class="restart-button" onclick="location.reload()">Play Again</button>
             </div>
         `;
     }
 }
 
-// 当页面加载完成时初始化游戏
+// Initialize game when page loads
 document.addEventListener('DOMContentLoaded', () => {
     new QuizGame();
 }); 
