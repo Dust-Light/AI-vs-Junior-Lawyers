@@ -29,7 +29,7 @@ class QuizGame {
         }
 
         const question = this.questions[this.currentQuestionIndex];
-        this.questionElement.textContent = question.question;
+        this.questionElement.textContent = `${this.currentQuestionIndex + 1}. ${question.question}`;
         
         // 清空选项容器
         this.optionsContainer.innerHTML = '';
@@ -50,6 +50,7 @@ class QuizGame {
 
     startTimer() {
         this.updateTimerDisplay();
+        clearInterval(this.timer);
         this.timer = setInterval(() => {
             this.timeLeft--;
             this.updateTimerDisplay();
@@ -67,20 +68,45 @@ class QuizGame {
     checkAnswer(selectedIndex) {
         clearInterval(this.timer);
         const currentQuestion = this.questions[this.currentQuestionIndex];
+        const buttons = this.optionsContainer.getElementsByClassName('option-button');
+        
+        // 禁用所有按钮
+        Array.from(buttons).forEach(button => {
+            button.disabled = true;
+        });
+
+        // 显示正确和错误答案
+        buttons[currentQuestion.correctAnswer].classList.add('correct');
+        if (selectedIndex !== currentQuestion.correctAnswer) {
+            buttons[selectedIndex].classList.add('incorrect');
+        }
         
         if (selectedIndex === currentQuestion.correctAnswer) {
             this.score += Math.floor(this.timeLeft * 100 / currentQuestion.timeLimit);
             this.updateScore();
         }
 
-        this.currentQuestionIndex++;
-        setTimeout(() => this.showQuestion(), 1000);
+        setTimeout(() => {
+            this.currentQuestionIndex++;
+            this.showQuestion();
+        }, 2000);
     }
 
     timeUp() {
         clearInterval(this.timer);
-        this.currentQuestionIndex++;
-        this.showQuestion();
+        const buttons = this.optionsContainer.getElementsByClassName('option-button');
+        Array.from(buttons).forEach(button => {
+            button.disabled = true;
+        });
+        
+        // 显示正确答案
+        const currentQuestion = this.questions[this.currentQuestionIndex];
+        buttons[currentQuestion.correctAnswer].classList.add('correct');
+        
+        setTimeout(() => {
+            this.currentQuestionIndex++;
+            this.showQuestion();
+        }, 2000);
     }
 
     updateScore() {
@@ -88,9 +114,14 @@ class QuizGame {
     }
 
     endGame() {
-        this.questionElement.textContent = `游戏结束！最终得分: ${this.score}`;
-        this.optionsContainer.innerHTML = '';
-        this.timerElement.textContent = '';
+        const container = document.getElementById('game-container');
+        container.innerHTML = `
+            <div class="game-over">
+                <h2>游戏结束！</h2>
+                <p>最终得分: ${this.score}</p>
+                <button class="restart-button" onclick="location.reload()">重新开始</button>
+            </div>
+        `;
     }
 }
 

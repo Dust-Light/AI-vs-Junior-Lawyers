@@ -3,7 +3,7 @@ const quizQuestions = [
         question: "AI相比初级律师的优势是什么？",
         options: [
             "AI不需要喝咖啡",
-            "AI总是知道所有法律",
+            "AI总是知道法律",
             "AI可以更快地审阅文件",
             "选项A和C都对"
         ],
@@ -33,12 +33,34 @@ const quizQuestions = [
         timeLimit: 30
     },
     {
+        question: "初级律师可能会用到而AI永远不会用的借口是？",
+        options: [
+            "打印机卡纸了",
+            "我需要更多咖啡",
+            "周一第一件事就做",
+            "以上都是"
+        ],
+        correctAnswer: 3,
+        timeLimit: 30
+    },
+    {
         question: "连续工作72小时后，AI最可能说什么？",
         options: [
             "我能休息一下吗？",
             "我需要重启",
             "错误：过度工作",
             "什么都不说—继续工作"
+        ],
+        correctAnswer: 3,
+        timeLimit: 30
+    },
+    {
+        question: "初级律师比AI更容易听到的话是？",
+        options: [
+            "这很好，但需要调整",
+            "努力不错，明天重做",
+            "你在进步，继续加油",
+            "以上都是"
         ],
         correctAnswer: 3,
         timeLimit: 30
@@ -66,28 +88,6 @@ const quizQuestions = [
         timeLimit: 30
     },
     {
-        question: "为什么客户更信任初级律师而不是AI？",
-        options: [
-            "他们能当面解释复杂问题",
-            "客户更喜欢人际互动",
-            "AI不会握手",
-            "以上都是"
-        ],
-        correctAnswer: 3,
-        timeLimit: 30
-    },
-    {
-        question: "在审查100页合同的比赛中会发生什么？",
-        options: [
-            "AI几分钟就完成，但律师能发现细微差别",
-            "律师中途疲惫",
-            "双方同意合作",
-            "以上都是"
-        ],
-        correctAnswer: 3,
-        timeLimit: 30
-    },
-    {
         question: "哪项任务目前更适合AI而不是初级律师？",
         options: [
             "审查数千份发票寻找错误",
@@ -99,11 +99,11 @@ const quizQuestions = [
         timeLimit: 30
     },
     {
-        question: "为什么初级律师在起草客户信件方面比AI更好？",
+        question: "为什么初级律师会羡慕AI？",
         options: [
-            "他们理解语气和情感",
-            "他们能适应独特的客户需求",
-            "AI难以把握细微的语言差别",
+            "AI不用在办公室加班",
+            "AI不用担心打字错误",
+            "AI不用讨好高级合伙人",
             "以上都是"
         ],
         correctAnswer: 3,
