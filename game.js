@@ -34,10 +34,11 @@ class QuizGame {
         // Clear options container
         this.optionsContainer.innerHTML = '';
         
-        // Create option buttons
+        // Create option buttons with A, B, C, D labels
         question.options.forEach((option, index) => {
             const button = document.createElement('button');
-            button.textContent = option;
+            const label = String.fromCharCode(65 + index); // Convert 0,1,2,3 to A,B,C,D
+            button.textContent = `${label}. ${option}`;
             button.classList.add('option-button');
             button.addEventListener('click', () => this.checkAnswer(index));
             this.optionsContainer.appendChild(button);
@@ -81,8 +82,9 @@ class QuizGame {
             buttons[selectedIndex].classList.add('incorrect');
         }
         
+        // New scoring system: 10 points per correct answer
         if (selectedIndex === currentQuestion.correctAnswer) {
-            this.score += Math.floor(this.timeLeft * 100 / currentQuestion.timeLimit);
+            this.score += 10;
             this.updateScore();
         }
 
@@ -115,10 +117,11 @@ class QuizGame {
 
     endGame() {
         const container = document.getElementById('game-container');
+        const percentage = (this.score / 100) * 100;
         container.innerHTML = `
             <div class="game-over">
                 <h2>Game Over!</h2>
-                <p>Final Score: ${this.score}</p>
+                <p>Final Score: ${this.score}/100 (${percentage}%)</p>
                 <button class="restart-button" onclick="location.reload()">Play Again</button>
             </div>
         `;
