@@ -13,6 +13,7 @@ class QuizGame {
         this.optionsContainer = document.getElementById('options');
         this.timerElement = document.getElementById('timer');
         this.scoreElement = document.getElementById('score');
+        this.feedbackElement = document.getElementById('feedback');
         
         this.initGame();
     }
@@ -78,20 +79,33 @@ class QuizGame {
 
         // Show correct and incorrect answers
         buttons[currentQuestion.correctAnswer].classList.add('correct');
-        if (selectedIndex !== currentQuestion.correctAnswer) {
-            buttons[selectedIndex].classList.add('incorrect');
-        }
         
-        // New scoring system: 10 points per correct answer
+        // Show feedback message
         if (selectedIndex === currentQuestion.correctAnswer) {
+            this.showFeedback('Congratulations! 🎉', true);
             this.score += 10;
             this.updateScore();
+        } else {
+            this.showFeedback('Give it another try! 💪', false);
+            buttons[selectedIndex].classList.add('incorrect');
         }
 
         setTimeout(() => {
             this.currentQuestionIndex++;
+            this.hideFeedback();
             this.showQuestion();
         }, 2000);
+    }
+
+    showFeedback(message, isCorrect) {
+        this.feedbackElement.textContent = message;
+        this.feedbackElement.className = 'feedback-message';
+        this.feedbackElement.classList.add(isCorrect ? 'feedback-correct' : 'feedback-incorrect');
+        this.feedbackElement.classList.add('feedback-visible');
+    }
+
+    hideFeedback() {
+        this.feedbackElement.classList.remove('feedback-visible');
     }
 
     timeUp() {
@@ -104,9 +118,11 @@ class QuizGame {
         // Show correct answer
         const currentQuestion = this.questions[this.currentQuestionIndex];
         buttons[currentQuestion.correctAnswer].classList.add('correct');
+        this.showFeedback('Time\'s up! ⏰', false);
         
         setTimeout(() => {
             this.currentQuestionIndex++;
+            this.hideFeedback();
             this.showQuestion();
         }, 2000);
     }
